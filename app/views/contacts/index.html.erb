@@ -1,25 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contact Saved</h1>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-12 col-sm-12 jumbotron">
+            
+            <h2 class="text-center">Contact List</h2>
+            <p class="text-center text-small">This is a contact saving application</p>
+        </div>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1>Contact Listing</h1>
 
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @contacts.each do |c| %>
+  <span><%= c.first_name %></span>
+  <span><%= c.last_name %></span>
+  
+  <br/>
+<% end %>
 
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>
