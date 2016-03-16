@@ -9,14 +9,60 @@
             <p class="text-center text-small">This is a contact saving application</p>
         </div>
     </div>
-</div>
 
-<h1>Contact Listing</h1>
+    <!--Start of list -->
+    <div class="row">
+        <%@contacts.each do |c| %>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  
+                  
+                  <h3 class="panel-title"><%= c.first_name%>&nbsp;<%= c.last_name %></h3>
+                  
+              </div>
+              <div class="panel-body">
+                  <div class="col-md-6 col-md-offset-3 text-center">
+                    <img src="<%= c.profile_img %>" width="150" height="150" alt="<%=c.first_name %>">
+                 
+                    
+                    <ul>
+                        
+                        <li>Phone Number: <%= c.phone %></li>
+                        <hr>
 
-<% @contacts.each do |c| %>
-  <span><%= c.first_name %></span>
-  <span><%= c.last_name %></span>
-  
-  <br/>
-<% end %>
+                        <li>Present Address: <%= c.present_address %> </li>
+                        <hr>
+                        <li>Permanent Address: <%= c.permanent_address %></li>
+                        <hr> 
+                        <li>Email : <%= c.email %></li>
+                        
+                        <hr>
+                        <li><strong>About :</strong> <br/><%= c.about %></li>
+                        
+                        <hr>
+                        <li>Facebook : <%= c.facebook_link %></li>
+                        <hr>
+                        <li>Google : <%= c.google_link %></li>
 
+                        <hr>
+                        <li>Twitter: <%= c.twitter_link %></li>
+                        
+                    </ul>
+                  </div>
+                  <div class="col-md-3">
+                      <ul class="action-menu">
+                        
+                          <li><%= link_to('New' , new_contact_path , class:"btn btn-info"  ) %></li>
+                          
+                          <li><a href="#" class="btn btn-success">Edit</a></li> 
+
+                          <li><a href="#" class="btn btn-danger">Delete</a></li>
+                      </ul>        
+                  </div> 
+              </div>
+          </div>    
+        <% end %>    
+        
+        
+        
+        

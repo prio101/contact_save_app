@@ -1,20 +1,25 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /contacts
   # GET /contacts.json
   def index
     @contacts = Contact.all
+    @time = Time.new
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+   
+    @time = Time.new
   end
 
   # GET /contacts/new
   def new
     @contact = Contact.new
+    @time = Time.new
   end
 
   # GET /contacts/1/edit

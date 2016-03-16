@@ -1,4 +1,4 @@
-<%= form_for(@contact) do |f| %>
+<%= form_for(@contact , url: {action:"create" } ) do  |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -10,8 +10,107 @@
       </ul>
     </div>
   <% end %>
+ 
+  <div class="col-md-6 col-md-offset-3">
+    <div class="form-group">
+        <div class="form-group">
+            
+            
+             <%= label_tag(:first_name , "First Name") %>
+             
+             
+             <%= text_field_tag("first_name" , nil , class: "form-control" ) %>
+             
+           
+         </div>
+        
+        
+       <div class="form-group">
+            <%= label_tag(:last_name , "Last Name") %>
+              
+            <%= text_field_tag("last_name" , nil , class: "form-control" ) %>
+           
+            
+       </div>
+       <div class="form-group">
+           <%= label_tag(:email , "Email") %>
+           <%= text_field_tag('email' , nil , class: "form-control" ) %>
+             
+       </div>
+       <div class="form-group">
+           
+           <%= label_tag(:present_address , "Present Address") %>
+           <%= text_field_tag('present_address' , nil , class: "form-control") %> 
+        
+       </div>
+       
+       <div class="form-group">
+           
+             <%=label_tag(:permanent_address, "Permanent Address") %> 
+            
+             <%=text_field_tag('permanent_address' , nil , class: "form-control")%>
 
-  <div class="actions">
-    <%= f.submit %>
+         </div>
+         
+        <div class="form-group">
+            <%=label_tag(:about , "About") %>
+            
+            
+            <%=text_area_tag(:about ,nil, rows: 5 ,  class: "form-control") %>
+      
+
+        </div>
+        
+        <div class="form-group">
+             
+             <%= label_tag(:profile_img , "Profile Image") %> 
+             
+             <%= file_field_tag(:profile_img , class: "form-control" ) %>
+             
+         </div>
+
+        <div class="form-group">
+            
+            
+             <%= label_tag(:facebook_link , "Facebook Link") %>
+             <%= text_field_tag(:facebook_link , nil , class: "form-control") %>
+             
+         </div>
+
+        <div class="form-group">
+            
+             <%= label_tag(:google_link, "Google Link") %>
+             <%= text_field_tag(:google_link , nil , class: "form-control") %>
+             
+         </div>
+
+        <div class="form-group">
+            
+            <%= label_tag(:twitter_link  , "Twitter Link") %>
+            
+            <%= text_field_tag(:twitter_link, nil , class: "form-control" ) %>
+            
+           
+         </div>
+         
+       <div class="form-group">
+           
+            <%= label_tag(:cover_pic , "Cover picture") %>
+
+            <%= file_field_tag(:cover_pic , class: "form-control" ) %>
+            
+             
+         
+       </div>
+
+       
+    </div>  
+  </div>
+  
+  
+  <div class="col-md-6 col-md-offset-3">
+      
+      
+    <%= submit_tag "Save" , class: "btn btn-primary btn-block"   %>
   </div>
 <% end %>
