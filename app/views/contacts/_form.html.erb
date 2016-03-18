@@ -1,4 +1,4 @@
-<%= form_for(@contact , url: {action:"create" } ) do  |f| %>
+<%= form_for(@contact ) do  |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -16,88 +16,85 @@
         <div class="form-group">
             
             
-             <%= label_tag(:first_name , "First Name") %>
-             
-             
-             <%= text_field_tag("first_name" , nil , class: "form-control" ) %>
+             <%= f.label(:first_name , "First Name") %>
+             <%= f.text_field(:first_name , class: "form-control" , placeholder: "First Name") %>
              
            
          </div>
         
         
        <div class="form-group">
-            <%= label_tag(:last_name , "Last Name") %>
-              
-            <%= text_field_tag("last_name" , nil , class: "form-control" ) %>
+            <%= f.label(:last_name , "Last Name") %>
+            <%= f.text_field(:last_name , class: "form-control", placeholder: "Last Name" ) %>
            
             
        </div>
        <div class="form-group">
-           <%= label_tag(:email , "Email") %>
-           <%= text_field_tag('email' , nil , class: "form-control" ) %>
+           <%= f.label(:email , "Email") %>
+           <%= f.text_field(:email ,  class: "form-control",placeholder: "email@email.com" ) %>
              
        </div>
        <div class="form-group">
            
-           <%= label_tag(:present_address , "Present Address") %>
-           <%= text_field_tag('present_address' , nil , class: "form-control") %> 
+           <%= f.label(:present_address , "Present Address") %>
+           <%= f.text_field(:present_address , class: "form-control", placeholder: "address") %> 
         
        </div>
        
        <div class="form-group">
            
-             <%=label_tag(:permanent_address, "Permanent Address") %> 
+             <%= f.label(:permanent_address, "Permanent Address") %> 
             
-             <%=text_field_tag('permanent_address' , nil , class: "form-control")%>
+             <%= f.text_field(:permanent_address , class: "form-control" , placeholder: "address")%>
 
          </div>
          
         <div class="form-group">
-            <%=label_tag(:about , "About") %>
+            <%= f.label(:about , "About") %>
             
             
-            <%=text_area_tag(:about ,nil, rows: 5 ,  class: "form-control") %>
+            <%= f.text_area(:about , rows: 5 ,  class: "form-control") %>
       
 
         </div>
         
         <div class="form-group">
              
-             <%= label_tag(:profile_img , "Profile Image") %> 
+             <%= f.label(:profile_img , "Profile Image") %> 
              
-             <%= file_field_tag(:profile_img , class: "form-control" ) %>
-             
-         </div>
-
-        <div class="form-group">
-            
-            
-             <%= label_tag(:facebook_link , "Facebook Link") %>
-             <%= text_field_tag(:facebook_link , nil , class: "form-control") %>
+             <%= f.file_field(:profile_img , class: "form-control" ) %>
              
          </div>
 
         <div class="form-group">
             
-             <%= label_tag(:google_link, "Google Link") %>
-             <%= text_field_tag(:google_link , nil , class: "form-control") %>
+            
+             <%= f.label(:facebook_link , "Facebook Link") %>
+             <%= f.text_field(:facebook_link , class: "form-control") %>
              
          </div>
 
         <div class="form-group">
             
-            <%= label_tag(:twitter_link  , "Twitter Link") %>
+             <%= f.label(:google_link, "Google Link") %>
+             <%= f.text_field(:google_link  , class: "form-control") %>
+             
+         </div>
+
+        <div class="form-group">
             
-            <%= text_field_tag(:twitter_link, nil , class: "form-control" ) %>
+            <%= f.label(:twitter_link  , "Twitter Link") %>
+            
+            <%= f.text_field(:twitter_link, class: "form-control" ) %>
             
            
          </div>
          
        <div class="form-group">
            
-            <%= label_tag(:cover_pic , "Cover picture") %>
+            <%= f.label(:cover_pic , "Cover picture") %>
 
-            <%= file_field_tag(:cover_pic , class: "form-control" ) %>
+            <%= f.file_field(:cover_pic , class: "form-control" ) %>
             
              
          
