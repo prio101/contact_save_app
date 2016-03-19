@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-
+<% if notice %>
+    <p id="notice" class="alert alert-info"><%= notice %></p>
+<% end %>
 <div class="container">
     <div class="row">
         
@@ -23,15 +24,13 @@
                   
               </div>
               <div class="panel-body">
+                  
                   <div class="col-md-6 col-md-offset-3 text-center">
                     <img src="<%= c.profile_img %>" width="150" height="150" alt="<%=c.first_name %>">
                  
                     
                     <ul>
                         
-                        <li>Phone Number: <%= c.phone %></li>
-                        <hr>
-
                         <li>Present Address: <%= c.present_address %> </li>
                         <hr>
                         <li>Permanent Address: <%= c.permanent_address %></li>
@@ -53,12 +52,9 @@
                   </div>
                   <div class="col-md-3">
                       <ul class="action-menu">
-                        
-                         
+                          <%= link_to 'Edit' , edit_contact_path(c.id), class:"btn btn-primary" %> 
                           
-                          <li><a href="#" class="btn btn-success">Edit</a></li> 
-
-                          <li><a href="#" class="btn btn-danger">Delete</a></li>
+                          <%= button_to 'Destroy' , {:controller => :contacts , :action=>'destroy' , :id=> c.id},method: :delete , class:"btn btn-danger" %>
                       </ul>        
                   </div> 
               </div>

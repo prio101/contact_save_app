@@ -6,24 +6,22 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = Contact.all
-    @time = Time.new
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
-   
-    @time = Time.new
+    @contact = Contact.find(params[:id]) 
   end
 
   # GET /contacts/new
   def new
     @contact = Contact.new
-    @time = Time.new
   end
 
   # GET /contacts/1/edit
   def edit
+    @contact = Contact.find(params[:id])
   end
 
   # POST /contacts
