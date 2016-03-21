@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315193745) do
+ActiveRecord::Schema.define(version: 20160321134233) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"
@@ -26,8 +26,16 @@ ActiveRecord::Schema.define(version: 20160315193745) do
     t.string   "twitter_link"
     t.string   "profile_img"
     t.string   "cover_pic"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "profile_img_file_name"
+    t.string   "profile_img_content_type"
+    t.integer  "profile_img_file_size"
+    t.datetime "profile_img_updated_at"
+    t.string   "cover_pic_file_name"
+    t.string   "cover_pic_content_type"
+    t.integer  "cover_pic_file_size"
+    t.datetime "cover_pic_updated_at"
   end
 
 end
