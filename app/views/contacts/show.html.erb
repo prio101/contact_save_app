@@ -2,5 +2,9 @@
 
 <%= render 'details' %>
 
+
+
+<%= link_to 'Pdf Print' , contact_path(@contact , format:"pdf") ,class: "btn btn-info" %>
+
 <%= link_to 'Edit', edit_contact_path(@contact) , class: "btn btn-primary" %>
 <%= link_to 'Back', contacts_path , class: "btn btn-default"%>

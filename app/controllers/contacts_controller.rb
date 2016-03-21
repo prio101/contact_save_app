@@ -12,7 +12,29 @@ class ContactsController < ApplicationController
   # GET /contacts/1.json
   def show
     @contact = Contact.find(params[:id]) 
+    respond_to do |format|
+        format.html
+        format.pdf do
+            contact_pdf = Prawn::Document
+            pdf = contact_pdf.new 
+            
+            
+            
+            pdf.text  "Contact Details" , style: :bold , top: 70 , font_size: 300
+            pdf.text  "Contact details of the #{@contact.last_name}"
+            pdf.text  "Contact Names : #{@contact.first_name} #{@contact.last_name}"
+            pdf.text  "Email: #{@contact.email}"
+              
+            
+            
+            send_data pdf.render , filename: "contact-details of #{@contact.last_name}.pdf",
+                                    type: "application/pdf",
+                                    disposition: "inline"
+
+        end
+    end
   end
+
 
   # GET /contacts/new
   def new
@@ -84,4 +106,11 @@ class ContactsController < ApplicationController
                                      :google_link , :twitter_link , :cover_pic)
       
     end
+    
+    
+    def pdf_header
+        
+        puts "Contact Of the #{@contact.last_name}"
+    end
+    
 end
